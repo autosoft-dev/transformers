@@ -174,7 +174,9 @@ class BertEmbeddings(nn.Module):
         position_embeddings = self.position_embeddings(position_ids)
         token_type_embeddings = self.token_type_embeddings(token_type_ids)
 
+        logger.info("******************* KKKKKKKKKKKKKKKKKKKKKKK *****************")
         embeddings = inputs_embeds + position_embeddings + token_type_embeddings
+        logger.info(f"{embeddings.size()}")
         embeddings = self.LayerNorm(embeddings)
         embeddings = self.dropout(embeddings)
         return embeddings
