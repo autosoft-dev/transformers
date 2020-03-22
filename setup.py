@@ -94,7 +94,7 @@ setup(
     packages=find_packages("src"),
     install_requires=[
         "numpy",
-        "tokenizers == 0.5.2",
+        "tokenizers == 0.6.0",
         # accessing files from S3 directly
         "boto3",
         # filesystem locks e.g. to prevent parallel downloads
