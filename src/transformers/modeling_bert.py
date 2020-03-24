@@ -175,14 +175,17 @@ class BertEmbeddings(nn.Module):
         position_embeddings = self.position_embeddings(position_ids)
         token_type_embeddings = self.token_type_embeddings(token_type_ids)
 
+        e = None
         try:
             embeddings = inputs_embeds + position_embeddings + token_type_embeddings
+            e = embeddings
             embeddings = self.LayerNorm(embeddings)
             embeddings = self.dropout(embeddings)
             return embeddings
         except Exception as e:
             logger.info("******************* KKKKKKKKKKKKKKKKKKKKKKK *****************")
-            logger.info(f"{embeddings.size()}")
+            if e is not None:
+                logger.info(f"{e.size()}")
 
 class BertSelfAttention(nn.Module):
     def __init__(self, config):
