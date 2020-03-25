@@ -185,7 +185,7 @@ class BertEmbeddings(nn.Module):
         except Exception as e:
             logger.info("******************* KKKKKKKKKKKKKKKKKKKKKKK *****************")
             if em is not None:
-                logger.info(f"{em.size()}")
+                logger.info(f"{em}")
 
 class BertSelfAttention(nn.Module):
     def __init__(self, config):
